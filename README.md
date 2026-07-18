@@ -1,3 +1,7 @@
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat&logo=amazonaws&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white)
+![Generative AI](https://img.shields.io/badge/Generative%20AI-E75480?style=flat&logo=ai&logoColor=white)
+
 # AWS Community Builders Prep Hub
 
 Contiene información del programa oficial de AWS Community Builders, guías para aplicar al programa, consejos, links utiles y revisión de material de postulación con IA.
