@@ -1,0 +1,18 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/health"
+  to = "/.netlify/functions/health"
+  status = 200
+
+# Fallback SPA para React Router / rutas del cliente
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

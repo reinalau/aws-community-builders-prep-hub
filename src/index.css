@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+@import "tailwindcss";
+
+html {
+  font-size: 120%;
+  /* escala TODO el sitio (Tailwind usa rem) */
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-display: "Playfair Display", serif;
+  --font-mono: "Fira Code", ui-monospace, SFMono-Regular, monospace;
+
+  --color-editorial-bg: #E4B8FD;
+  /* antes #F9F7F2;*/
+  --color-editorial-text: #1A1A1A;
+  --color-aws-orange: #FF9900;
+  --color-aws-navy: #232F3E;
+
+}
+
+/* Custom editorial style helpers */
+.editorial-title {
+  font-family: 'Playfair Display', serif;
+}
+
+.body-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+.label-sans {
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.accent-line {
+  height: 1px;
+  background: rgba(26, 26, 26, 0.12);
+}
+
+/* Scrollbar adjustment consistent with the paper/warm-wood theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1ECD9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbc3ac;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF9900;
+}

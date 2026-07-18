@@ -1,0 +1,75 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Lambda de revisión de postulaciones AWS Community Builders (Gemini),
+  con rol de ejecución dedicado y retención de logs de 1 día.
+
+Parameters:
+  GeminiApiKey:
+    Type: String
+    NoEcho: true
+    Default: "CHANGE_ME"
+    Description: API Key de Gemini (Google GenAI)
+
+  AllowedOrigin:
+    Type: String
+    Default: "https://aws-communitybuilders-laub.netlify.app"
+    Description: Origen permitido para CORS en el Function URL
+
+Resources:
+
+  ReviewFunctionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: aws-community-builders-review-role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: CloudWatchLogsWriteOnly
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource:
+                  - !Sub "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/aws-community-builders-review*"
+
+  ReviewFunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: /aws/lambda/aws-community-builders-review
+      RetentionInDays: 1
+
+  ReviewFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: aws-community-builders-review
+      CodeUri: review/
+      Handler: index.handler
+      Runtime: nodejs20.x
+      Timeout: 180
+      MemorySize: 256
+      Role: !GetAtt ReviewFunctionRole.Arn
+      Environment:
+        Variables:
+          GEMINI_API_KEY: !Ref GeminiApiKey
+          ALLOWED_ORIGIN: !Ref AllowedOrigin
+      FunctionUrlConfig:
+        AuthType: NONE
+      
+Outputs:
+  ReviewFunctionUrl:
+    Description: URL pública de la Lambda (usar como LAMBDA_REVIEW_URL en Netlify)
+    Value: !GetAtt ReviewFunctionUrl.FunctionUrl
+
+  ReviewFunctionArn:
+    Description: ARN de la función Lambda
+    Value: !GetAtt ReviewFunction.Arn

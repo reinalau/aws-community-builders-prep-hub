@@ -1,0 +1,9 @@
+{
+  "name": "aws-community-builders-review-lambda",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.mjs",
+  "dependencies": {
+    "@google/genai": "^1.0.0"
+  }
+}

@@ -1,0 +1,13 @@
+version = 0.1
+
+[default.deploy.parameters]
+stack_name = "aws-community-builders-review-bedrock"
+resolve_s3 = true
+s3_prefix = "aws-community-builders-review-bedrock"
+confirm_changeset = true
+capabilities = "CAPABILITY_NAMED_IAM"
+parameter_overrides = "AllowedOrigin=\"https://aws-communitybuilders-laub.netlify.app\""
+image_repositories = []
+
+[default.global.parameters]
+region = "us-east-1"

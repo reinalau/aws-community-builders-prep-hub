@@ -1,0 +1,6 @@
+{
+  "name": "AWS Community Builders Prep Hub",
+  "description": "Interactive presentation slides and application draft workspace with intelligent feedback helper for the AWS Community Builders program.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
