@@ -257,46 +257,46 @@ export default function App() {
           </div>
 
           {/* Navigation Tabs */}
-          <nav className="flex bg-white p-1 rounded-lg border border-black/10 shadow-sm">
+          <nav className="w-full sm:w-auto flex items-center gap-1 bg-white p-1 rounded-lg border border-black/10 shadow-sm overflow-x-auto no-scrollbar scroll-smooth">
             <button
               onClick={() => setActiveTab("presentation")}
-              className={`px-4 py-1.5 text-xs font-semibold rounded-md transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${activeTab === "presentation"
+              className={`px-3.5 sm:px-4 py-1.5 text-xs font-semibold rounded-md transition-all duration-200 flex items-center gap-1.5 cursor-pointer shrink-0 whitespace-nowrap ${activeTab === "presentation"
                 ? "bg-aws-navy text-white shadow-sm"
                 : "text-slate-600 hover:text-black hover:bg-[#E4B8FD]"
                 }`}
             >
-              <FileText className="w-3.5 h-3.5" />
-              Diapositivas
+              <FileText className="w-3.5 h-3.5 shrink-0" />
+              <span>Diapositivas</span>
             </button>
             <button
               onClick={() => setActiveTab("resources")}
-              className={`px-4 py-1.5 text-xs font-semibold rounded-md transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${activeTab === "resources"
+              className={`px-3.5 sm:px-4 py-1.5 text-xs font-semibold rounded-md transition-all duration-200 flex items-center gap-1.5 cursor-pointer shrink-0 whitespace-nowrap ${activeTab === "resources"
                 ? "bg-aws-navy text-white shadow-sm"
                 : "text-slate-600 hover:text-black hover:bg-[#E4B8FD]"
                 }`}
             >
-              <BookOpen className="w-3.5 h-3.5" />
-              FAQs y Consejos de Oro
+              <BookOpen className="w-3.5 h-3.5 shrink-0" />
+              <span>FAQs y Consejos de Oro</span>
             </button>
             <button
               onClick={() => setActiveTab("draft-builder")}
-              className={`px-4 py-1.5 text-xs font-semibold rounded-md transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${activeTab === "draft-builder"
+              className={`px-3.5 sm:px-4 py-1.5 text-xs font-semibold rounded-md transition-all duration-200 flex items-center gap-1.5 cursor-pointer shrink-0 whitespace-nowrap ${activeTab === "draft-builder"
                 ? "bg-aws-navy text-white shadow-sm"
                 : "text-slate-600 hover:text-black hover:bg-[#E4B8FD]"
                 }`}
             >
-              <PenTool className="w-3.5 h-3.5" />
-              Taller de Borrador (IA)
+              <PenTool className="w-3.5 h-3.5 shrink-0" />
+              <span>Taller de Borrador (IA)</span>
             </button>
             <button
               onClick={() => setActiveTab("useful-links")}
-              className={`px-4 py-1.5 text-xs font-semibold rounded-md transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${activeTab === "useful-links"
+              className={`px-3.5 sm:px-4 py-1.5 text-xs font-semibold rounded-md transition-all duration-200 flex items-center gap-1.5 cursor-pointer shrink-0 whitespace-nowrap ${activeTab === "useful-links"
                 ? "bg-aws-navy text-white shadow-sm"
                 : "text-slate-600 hover:text-black hover:bg-[#E4B8FD]"
                 }`}
             >
-              <Link className="w-3.5 h-3.5" />
-              Links Útiles
+              <Link className="w-3.5 h-3.5 shrink-0" />
+              <span>Links Útiles</span>
             </button>
           </nav>
         </div>
@@ -315,17 +315,17 @@ export default function App() {
               {/* Actual Interactive Slide Frame */}
               <div
                 id="slide-player"
-                className={`w-full aspect-[16/10] bg-[#F9F7F2] text-[#1A1A1A] rounded-xl border border-black/15 shadow-md relative overflow-hidden flex flex-row p-0 ${isFullscreen ? "h-full rounded-none" : ""}`}
+                className={`w-full min-h-[360px] sm:min-h-0 sm:aspect-[16/10] bg-[#F9F7F2] text-[#1A1A1A] rounded-xl border border-black/15 shadow-md relative overflow-hidden flex flex-row p-0 ${isFullscreen ? "h-full rounded-none" : ""}`}
               >
                 {/* LEFT RAIL: Navigation & Identity (Visual Theme Anchor) */}
-                <div className="w-12 sm:w-16 border-r border-black/10 flex flex-col justify-between py-6 items-center bg-white flex-shrink-0 select-none">
-                  <div className="label-sans vertical-text text-[9px] text-[#1a1a1a]/45 tracking-wider select-none">AWS COMMUNITY BUILDERS</div>
+                <div className="w-8 sm:w-16 border-r border-black/10 flex flex-col justify-between py-4 sm:py-6 items-center bg-white flex-shrink-0 select-none">
+                  <div className="label-sans vertical-text text-[8px] sm:text-[9px] text-[#1a1a1a]/45 tracking-wider select-none">AWS COMMUNITY BUILDERS</div>
 
-                  <div className="label-sans vertical-text text-[9px] text-[#1a1a1a]/45 tracking-wider select-none">EDITION 2026</div>
+                  <div className="label-sans vertical-text text-[8px] sm:text-[9px] text-[#1a1a1a]/45 tracking-wider select-none">EDITION 2026</div>
                 </div>
 
                 {/* MAIN CONTENT AREA OF SLIDE */}
-                <div className="flex-grow flex flex-col justify-between p-6 sm:p-10 relative bg-[#F9F7F2] overflow-y-auto">
+                <div className="flex-grow flex flex-col justify-between p-4 sm:p-8 lg:p-10 relative bg-[#F9F7F2] overflow-y-auto">
                   {/* Decorative faint background vertical grid column */}
                   <div className="absolute top-0 right-1/4 h-full w-[1px] bg-black/5 pointer-events-none"></div>
 
@@ -516,7 +516,7 @@ export default function App() {
               </div>
 
               {/* Slider Controls Bar */}
-              <div className="bg-white border border-black/10 rounded-xl p-3 flex justify-between items-center shadow-sm">
+              <div className="bg-white border border-black/10 rounded-xl p-3 flex flex-wrap sm:flex-nowrap justify-between items-center gap-2 shadow-sm">
                 <div className="flex items-center gap-2">
                   <button
                     onClick={handlePrevSlide}
@@ -693,41 +693,46 @@ export default function App() {
 
                   <div className="flex flex-col gap-3">
                     {draft.links.map((link, idx) => (
-                      <div key={link.id} className="flex gap-2 items-center">
-                        <div className="w-7 h-7 flex-shrink-0 rounded bg-[#F9F7F2] border border-black/10 text-xs font-mono font-bold text-[#1A1A1A]/70 flex items-center justify-center">
-                          {idx + 1}
+                      <div key={link.id} className="flex flex-col sm:flex-row gap-2 items-stretch sm:items-center bg-[#F9F7F2]/60 sm:bg-transparent p-2.5 sm:p-0 rounded-xl border sm:border-none border-black/10">
+                        <div className="flex items-center gap-2">
+                          <div className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0 rounded bg-white sm:bg-[#F9F7F2] border border-black/10 text-xs font-mono font-bold text-[#1A1A1A]/70 flex items-center justify-center">
+                            {idx + 1}
+                          </div>
+
+                          <select
+                            value={link.type}
+                            onChange={(e) => handleUpdateLink(link.id, "type", e.target.value)}
+                            className="bg-white text-xs p-2 rounded-lg border border-black/15 text-[#1A1A1A] focus:outline-none focus:border-[#FF9900] cursor-pointer flex-grow sm:flex-grow-0"
+                          >
+                            <option value="blog">Blog (Medium, Dev.to)</option>
+                            <option value="video">Video (YouTube)</option>
+                            <option value="talk">Charla / Ponencia</option>
+                            <option value="open-source">Open Source / GitHub</option>
+                            <option value="community">Liderazgo Comunidad</option>
+                            <option value="podcast">Podcast / Entrevista</option>
+                            <option value="other">Otro aporte</option>
+                          </select>
                         </div>
 
-                        <select
-                          value={link.type}
-                          onChange={(e) => handleUpdateLink(link.id, "type", e.target.value)}
-                          className="bg-white text-xs p-2 rounded-lg border border-black/15 text-[#1A1A1A] mr-1 focus:outline-none focus:border-[#FF9900] cursor-pointer"
-                        >
-                          <option value="blog">Blog (Medium, Dev.to)</option>
-                          <option value="video">Video (YouTube)</option>
-                          <option value="talk">Charla / Ponencia</option>
-                          <option value="open-source font-light">Open Source / GitHub</option>
-                          <option value="community">Liderazgo Comunidad</option>
-                          <option value="podcast">Podcast / Entrevista</option>
-                          <option value="other">Otro aporte</option>
-                        </select>
+                        <div className="flex items-center gap-2 flex-grow min-w-0">
+                          <input
+                            type="text"
+                            value={link.url}
+                            onChange={(e) => handleUpdateLink(link.id, "url", e.target.value)}
+                            placeholder="https://dev.to/mi-usuario/tutorial-aws"
+                            className="flex-grow bg-white text-xs px-3 py-2 rounded-lg border border-black/15 text-[#1A1A1A] placeholder-slate-400 focus:outline-none focus:border-[#FF9900] transition-colors min-w-0"
+                          />
 
-                        <input
-                          type="text"
-                          value={link.url}
-                          onChange={(e) => handleUpdateLink(link.id, "url", e.target.value)}
-                          placeholder="https://dev.to/mi-usuario/tutorial-aws"
-                          className="flex-grow bg-white text-xs px-3 py-2 rounded-lg border border-black/15 text-[#1A1A1A] placeholder-slate-400 focus:outline-none focus:border-[#FF9900] transition-colors"
-                        />
-
-                        {draft.links.length > 1 && (
-                          <button
-                            onClick={() => handleRemoveLink(link.id)}
-                            className="p-2 bg-white hover:bg-rose-50 hover:text-white border border-black/10 hover:border-transparent rounded-lg text-slate-500 transition-colors cursor-pointer shadow-xs"
-                          >
-                            <Trash2 className="w-3.5 h-3.5" />
-                          </button>
-                        )}
+                          {draft.links.length > 1 && (
+                            <button
+                              onClick={() => handleRemoveLink(link.id)}
+                              className="p-2 bg-white hover:bg-rose-50 hover:text-rose-600 border border-black/10 rounded-lg text-slate-500 transition-colors cursor-pointer shadow-xs flex-shrink-0"
+                              title="Eliminar enlace"
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                            </button>
+                          )}
+                        </div>
                       </div>
                     ))}
                   </div>

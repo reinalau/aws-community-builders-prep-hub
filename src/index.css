@@ -2,9 +2,25 @@
 @import "tailwindcss";
 
 html {
-  font-size: 120%;
-  /* escala TODO el sitio (Tailwind usa rem) */
+  font-size: 100%;
+  /* escala el sitio de forma adaptativa según el dispositivo */
 }
+
+@media (min-width: 640px) {
+  html {
+    font-size: 120%;
+  }
+}
+
+/* Helper para scrollbar invisible en menús horizontales móviles */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
